@@ -66,7 +66,7 @@ def make_info(font_size: FontSize, alphabet: Sequence[str]) -> None:
         file.write('\n')
         file.write('## Unicode Character Statistics\n')
         file.write('\n')
-        file.write(f'Unicode Version：{unidata_blocks.unicode_version}\n')
+        file.write(f'Unicode Version：{unidata_blocks.UNICODE_VERSION}\n')
         file.write('\n')
         _write_unicode_chr_count_infos_table(file, _get_unicode_chr_count_infos(alphabet))
     logger.info('Make info: {!r}', str(file_path))
