@@ -1,13 +1,13 @@
 import yaml
 
-from tools.config import path_define
+from tools.config import paths
 from tools.config.options import FontSize
 
 
 class FontConfig:
     @staticmethod
     def load(font_size: FontSize) -> FontConfig:
-        data = yaml.safe_load(path_define.CONFIGS_FONTS_DIR.joinpath(f'font-{font_size}px.yaml').read_bytes())
+        data = yaml.safe_load(paths.CONFIGS_FONTS_DIR.joinpath(f'font-{font_size}px.yaml').read_bytes())
         assert font_size == data['font-size']
         canvas_height = data['canvas-height']
         baseline = data['baseline']

@@ -7,7 +7,7 @@ import unidata_blocks
 from loguru import logger
 from unidata_blocks import UnicodeBlock
 
-from tools.config import path_define, project
+from tools.config import paths, project
 from tools.config.options import FontSize
 
 
@@ -52,8 +52,8 @@ def _write_unicode_chr_count_infos_table(file: TextIO, infos: Sequence[tuple[Uni
 def make_info(font_size: FontSize, alphabet: Sequence[str]) -> None:
     alphabet = set(alphabet)
 
-    path_define.OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
-    file_path = path_define.OUTPUTS_DIR.joinpath(f'info-{font_size}px.md')
+    paths.OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
+    file_path = paths.OUTPUTS_DIR.joinpath(f'info-{font_size}px.md')
     with file_path.open('w', encoding='utf-8') as file:
         file.write(f'# {project.FONT_BRAND} {project.FONT_LANGUAGE} {font_size}px\n')
         file.write('\n')
@@ -73,7 +73,7 @@ def make_info(font_size: FontSize, alphabet: Sequence[str]) -> None:
 
 
 def make_alphabet_txt(font_size: FontSize, alphabet: Sequence[str]) -> None:
-    path_define.OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
-    file_path = path_define.OUTPUTS_DIR.joinpath(f'alphabet-{font_size}px.txt')
+    paths.OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
+    file_path = paths.OUTPUTS_DIR.joinpath(f'alphabet-{font_size}px.txt')
     file_path.write_text(''.join(alphabet), 'utf-8')
     logger.info('Make alphabet txt: {!r}', str(file_path))
