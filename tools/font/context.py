@@ -148,7 +148,7 @@ class FontBuildContext:
     def make_fonts(self, font_formats: Sequence[FontFormat]) -> None:
         paths.OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
 
-        if len(font_formats) > 0:
+        if font_formats:
             builder = self.create_builder()
             for font_format in font_formats:
                 file_path = paths.OUTPUTS_DIR.joinpath(f'{project.FILE_NAME_PREFIX}-{project.FONT_LANGUAGE.lower()}-{self.font_size}px.{font_format}')
