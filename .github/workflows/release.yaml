@@ -24,6 +24,6 @@ jobs:
       - name: Build
         run: uv run -m tools.build_fonts --cleanup --font-sizes ${{ matrix.font-size }} --font-formats ${{ matrix.font-format }}
       - name: Release
-        uses: softprops/action-gh-release@v3.0.3
+        uses: softprops/action-gh-release@v3.0.4
         with:
           files: ./build/releases/*.zip
